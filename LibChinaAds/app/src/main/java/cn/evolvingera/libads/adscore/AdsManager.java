@@ -67,7 +67,7 @@ public class AdsManager implements IAdsManager {
 
     @Override
     public void configAdmob(String admobkey) {
-        MobileAds.initialize(context, admobkey));
+        MobileAds.initialize(context, admobkey);
     }
 
     @Override
