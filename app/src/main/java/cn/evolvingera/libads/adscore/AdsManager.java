@@ -41,7 +41,6 @@ public class AdsManager implements IAdsManager {
 
     private static AdsManager instance;
     private static boolean adsavailable = true;
-    InterstitialAd mInterstitialAd;
 
     private Context context;
 
@@ -161,7 +160,6 @@ public class AdsManager implements IAdsManager {
             switch (adsType) {
                 case admob: {
                     newInterstitialAd(adsId);
-                    loadInterstitial();
                 }
                 break;
                 case inmobi:
@@ -280,12 +278,12 @@ public class AdsManager implements IAdsManager {
     }
 
     private InterstitialAd newInterstitialAd(String adsId) {
-        InterstitialAd interstitialAd = new InterstitialAd(context);
+        final InterstitialAd interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(adsId);
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                showInterstitial();
+                showInterstitial(interstitialAd);
             }
 
             @Override
@@ -298,10 +296,13 @@ public class AdsManager implements IAdsManager {
 //                goToNextLevel();
             }
         });
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        interstitialAd.loadAd(adRequest);
         return interstitialAd;
     }
 
-    private void showInterstitial() {
+    private void showInterstitial(InterstitialAd mInterstitialAd) {
         // Show the ad if it's ready. Otherwise toast and reload the ad.
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -311,11 +312,5 @@ public class AdsManager implements IAdsManager {
         }
     }
 
-    private void loadInterstitial() {
-        // Disable the next level button and load the ad.
-        AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        mInterstitialAd.loadAd(adRequest);
-    }
 
 }

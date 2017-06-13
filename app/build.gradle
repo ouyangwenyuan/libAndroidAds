@@ -9,7 +9,7 @@ android {
         minSdkVersion 18
         targetSdkVersion 24
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         multiDexEnabled true //  multi-dex
 
     }
@@ -30,10 +30,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile "com.android.support:recyclerview-v7:24.0.0"
-    compile "com.squareup.picasso:picasso:2.5.2"
-    compile 'com.google.android.gms:play-services:8.4.0'
+//    compile 'com.android.support:appcompat-v7:24.0.0'
+//    compile "com.android.support:recyclerview-v7:24.0.0"
+    compile 'com.google.android.gms:play-services:10.2.6'
 //    compile files('libs/InMobi-Android-6.8.0-B1-China.jar')
 //    compile "com.inmobi.monetization:inmobi-ads:6.1.1"
 }
