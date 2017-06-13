@@ -11,20 +11,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".DemoActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <receiver
             android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
             android:enabled="true"
@@ -41,14 +32,6 @@
             android:resizeableActivity="false"
             android:theme="@android:style/Theme.NoTitleBar"
             tools:ignore="UnusedAttribute" />
-        <!--<activity-->
-        <!--android:name="com.inmobi.rendering.InMobiAdActivity"-->
-        <!--android:configChanges="keyboardHidden|orientation|keyboard|-->
-        <!--smallestScreenSize|screenSize|screenLayout"-->
-        <!--android:hardwareAccelerated="true"-->
-        <!--android:resizeableActivity="false"-->
-        <!--android:theme="@android:style/Theme.NoTitleBar"-->
-        <!--tools:ignore="UnusedAttribute" />-->
     </application>
 
 </manifest>
