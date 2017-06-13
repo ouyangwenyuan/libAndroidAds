@@ -41,6 +41,7 @@ public class AdsManager implements IAdsManager {
 
     private static AdsManager instance;
     private static boolean adsavailable = true;
+    private static String testDevice = "F0140DAD6051E537B73E5C92301D63D3";
 
     private Context context;
 
@@ -49,6 +50,10 @@ public class AdsManager implements IAdsManager {
             instance = new AdsManager();
         }
         return instance;
+    }
+
+    public static void setTestDevice(String testDevice) {
+        AdsManager.testDevice = testDevice;
     }
 
     @Override
@@ -94,7 +99,7 @@ public class AdsManager implements IAdsManager {
                     NativeExpressAdView expressAdView = new NativeExpressAdView(context);
                     expressAdView.setAdSize(AdSize.LARGE_BANNER);
                     expressAdView.setAdUnitId(adsId);
-                    AdRequest request = new AdRequest.Builder()
+                    AdRequest request = new AdRequest.Builder().addTestDevice(testDevice)
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                             .build();
                     adContainner.addView(expressAdView, bannerLp);
@@ -258,7 +263,7 @@ public class AdsManager implements IAdsManager {
                     AdView adView = new AdView(context);
                     adView.setAdSize(AdSize.BANNER);
                     adView.setAdUnitId(adsId);
-                    AdRequest adRequest = new AdRequest.Builder()
+                    AdRequest adRequest = new AdRequest.Builder().addTestDevice(testDevice)
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                             .build();
                     adContainner.addView(adView);
@@ -296,7 +301,7 @@ public class AdsManager implements IAdsManager {
 //                goToNextLevel();
             }
         });
-        AdRequest adRequest = new AdRequest.Builder()
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(testDevice)
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         interstitialAd.loadAd(adRequest);
         return interstitialAd;
