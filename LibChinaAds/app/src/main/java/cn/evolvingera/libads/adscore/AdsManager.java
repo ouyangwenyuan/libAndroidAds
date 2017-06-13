@@ -1,5 +1,6 @@
 package cn.evolvingera.libads.adscore;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.ViewGroup;
@@ -101,7 +102,7 @@ public class AdsManager implements IAdsManager {
                 }
                 break;
                 case inmobi:
-                    InMobiNative inMobiNative = new InMobiNative(context, Long.valueOf(adsId), new InMobiNative.NativeAdListener() {
+                    InMobiNative inMobiNative = new InMobiNative((Activity) context, Long.valueOf(adsId), new InMobiNative.NativeAdListener() {
                         @Override
                         public void onAdLoadSucceeded(InMobiNative inMobiNative) {
                             if (callback != null) {
@@ -117,34 +118,20 @@ public class AdsManager implements IAdsManager {
                         }
 
                         @Override
-                        public void onAdFullScreenDismissed(InMobiNative inMobiNative) {
+                        public void onAdDismissed(InMobiNative inMobiNative) {
 
                         }
 
                         @Override
-                        public void onAdFullScreenDisplayed(InMobiNative inMobiNative) {
+                        public void onAdDisplayed(InMobiNative inMobiNative) {
 
                         }
 
                         @Override
-                        public void onUserWillLeaveApplication(InMobiNative inMobiNative) {
+                        public void onUserLeftApplication(InMobiNative inMobiNative) {
 
                         }
 
-                        @Override
-                        public void onAdImpressed(InMobiNative inMobiNative) {
-
-                        }
-
-                        @Override
-                        public void onAdClicked(InMobiNative inMobiNative) {
-
-                        }
-
-                        @Override
-                        public void onMediaPlaybackComplete(InMobiNative inMobiNative) {
-
-                        }
                     });
                     inMobiNative.load();
                     break;
@@ -162,7 +149,7 @@ public class AdsManager implements IAdsManager {
                 }
                 break;
                 case inmobi:
-                    InMobiInterstitial interstitialAd = new InMobiInterstitial(context, Long.valueOf(adsId), new InMobiInterstitial.InterstitialAdListener2() {
+                    InMobiInterstitial interstitialAd = new InMobiInterstitial((Activity) context, Long.valueOf(adsId), new InMobiInterstitial.InterstitialAdListener2() {
                         @Override
                         public void onAdLoadFailed(InMobiInterstitial inMobiInterstitial, InMobiAdRequestStatus inMobiAdRequestStatus) {
                             MyLog.i("ads had load onAdLoadFailed");
