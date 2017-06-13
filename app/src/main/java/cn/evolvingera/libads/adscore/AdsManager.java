@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.NativeExpressAdView;
+import com.google.android.gms.ads.formats.NativeAdView;
 import com.inmobi.ads.InMobiAdRequestStatus;
 import com.inmobi.ads.InMobiBanner;
 import com.inmobi.ads.InMobiInterstitial;
@@ -82,7 +83,7 @@ public class AdsManager implements IAdsManager {
     }
 
     @Override
-    public void loadNativeAds(AdsType adsType, RelativeLayout adContainner, String adsId, final Callback callback) {
+    public void loadNativeAds(AdsType adsType, RelativeLayout adContainner, int width, int height, String adsId, final Callback callback) {
 
         if (adContainner.getChildCount() > 0) {
             MyLog.i("ads had load");
@@ -97,13 +98,14 @@ public class AdsManager implements IAdsManager {
             switch (adsType) {
                 case admob: {
                     NativeExpressAdView expressAdView = new NativeExpressAdView(context);
-                    expressAdView.setAdSize(AdSize.LARGE_BANNER);
+                    expressAdView.setAdSize(new AdSize(width, height));
                     expressAdView.setAdUnitId(adsId);
                     AdRequest request = new AdRequest.Builder().addTestDevice(testDevice)
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                             .build();
                     adContainner.addView(expressAdView, bannerLp);
                     expressAdView.loadAd(request);
+                    MyLog.i("expressAdView.loadAd");
                 }
                 break;
                 case inmobi:

@@ -27,7 +27,7 @@ public interface IAdsManager {
 
     void setAdsAvailable(boolean available);
 
-    void loadNativeAds(AdsType adsType, RelativeLayout adContainner, String adsId, Callback callback);
+    void loadNativeAds(AdsType adsType, RelativeLayout adContainner, int width, int height, String adsId, Callback callback);
 
 
     void loadSplashAds(AdsType adsType, String adsId, Callback callback);
