@@ -68,8 +68,9 @@ public class AdsManager implements IAdsManager {
 //        InMobiSdk.setLocation(new Location());
         InMobiSdk.setGender(InMobiSdk.Gender.FEMALE);
         InMobiSdk.setAgeGroup(InMobiSdk.AgeGroup.BETWEEN_21_AND_24);
-
-        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+        if (BuildConfig.DEBUG) {
+          InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+        }
     }
 
     @Override
@@ -268,7 +269,7 @@ public class AdsManager implements IAdsManager {
                     AdRequest adRequest = new AdRequest.Builder().addTestDevice(testDevice)
                             .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                             .build();
-                    adContainner.addView(adView);
+                    adContainner.addView(adView, bannerLp);
                     adView.loadAd(adRequest);
                     break;
 
