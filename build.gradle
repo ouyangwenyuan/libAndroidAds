@@ -9,10 +9,21 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5' // Add this line
     }
 }
+ext {
+    androidMinSdkVersion = 15
+    androidTargetSdkVersion = 24
+    androidCompileSdkVersion = 24
+    androidBuildToolsVersion = "24.0.1"
 
+    appVersionCode = 1
+    appVersionName = "1.0.0"
+
+    gmsVersion = "8.4.0"
+    androidSupportLibVersion = "24.2.1"
+}
 allprojects {
     repositories {
         jcenter()

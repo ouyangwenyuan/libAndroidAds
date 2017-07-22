@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">LibChinaAds</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">TestJitpack</string>
+    <string name="google_app_id">ca-app-pub-3618984151272025~2700887995</string>
 </resources>

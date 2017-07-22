@@ -1,17 +1,19 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
+apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.ouyangwenyuan'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "25.0.0"
-
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
     defaultConfig {
-//        applicationId "cn.evolvingera.libchinaads"
-        minSdkVersion 18
-        targetSdkVersion 24
+        applicationId "net.droidman.testjitpack"
+        minSdkVersion 21
+        targetSdkVersion 25
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true //  multi-dex
-
     }
     buildTypes {
         release {
@@ -19,21 +21,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    android {
-        lintOptions {
-            abortOnError false
-        }
+
+    lintOptions {
+        abortOnError false
     }
 
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
+    }
 
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile 'com.android.support:appcompat-v7:24.0.0'
-//    compile "com.android.support:recyclerview-v7:24.0.0"
-    compile 'com.google.android.gms:play-services:10.2.6'
-    compile files('libs/InMobi-Android-6.8.0-B1-China.jar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.android.support:design:${androidSupportLibVersion}"
+    compile "com.android.support:appcompat-v7:${androidSupportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${androidSupportLibVersion}"
+    compile "com.google.android.gms:play-services:${gmsVersion}"
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:multidex:1.0.1'
+//    testCompile 'junit:junit:4.12'
+//    compile 'com.github.ouyangwenyuan:libAndroidAds:ba50a951d5'
 
-//    compile "com.inmobi.monetization:inmobi-ads:6.1.1"
+//    compile(name: 'libAds', ext: 'aar')
+//    compile 'com.google.android.gms:play-services:10.2.6'
+    compile project(":adslib")
 }

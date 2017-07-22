@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "126304266504",
+    "firebase_url": "https://peri-92b35.firebaseio.com",
+    "project_id": "peri-92b35",
+    "storage_bucket": "peri-92b35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126304266504:android:6dc17dd3efe6fb38",
+        "android_client_info": {
+          "package_name": "com.evolvingera.evaperiodtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126304266504-1hklmkvugoq8562hn2qknhasdvg7mlia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.evolvingera.evaperiodtracker",
+            "certificate_hash": "36d8669134c3d21955863e1b7dca94a3c86e4631"
+          }
+        },
+        {
+          "client_id": "126304266504-72df58m5hsb01s15egk4p4oj67v6ldaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNzZRGtk3IckqCXMR1vD7a1XLxNB83rAk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126304266504-91b4clel0apdm7sod2irscqrdj0rb1fm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.periodtracker.peri"
+              }
+            },
+            {
+              "client_id": "126304266504-72df58m5hsb01s15egk4p4oj67v6ldaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
