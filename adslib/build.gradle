@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.ouyangwenyuan'
 
 android {
     compileSdkVersion 24
@@ -25,19 +28,9 @@ android {
         }
     }
 
-
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile 'com.android.support:appcompat-v7:24.0.0'
-//    compile "com.android.support:recyclerview-v7:24.0.0"
-
-//    compile 'com.google.android.gms:play-services:10.2.6'
-    compile 'com.android.support:multidex:1.0.1'
-    compile "com.squareup.picasso:picasso:2.5.2"
     compile files('libs/InMobi-Android-6.8.0-B1-China.jar')
     compile 'com.google.android.gms:play-services:8.4.0'
-
-//    compile "com.inmobi.monetization:inmobi-ads:6.1.1"
 }

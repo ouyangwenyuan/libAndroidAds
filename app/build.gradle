@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'maven'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.ouyangwenyuan'
+
 
 android {
     compileSdkVersion 25
@@ -35,9 +33,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile "com.android.support:design:${androidSupportLibVersion}"
     compile "com.android.support:appcompat-v7:${androidSupportLibVersion}"
@@ -45,10 +41,7 @@ dependencies {
     compile "com.google.android.gms:play-services:${gmsVersion}"
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:multidex:1.0.1'
-//    testCompile 'junit:junit:4.12'
 //    compile 'com.github.ouyangwenyuan:libAndroidAds:ba50a951d5'
 
-//    compile(name: 'libAds', ext: 'aar')
-//    compile 'com.google.android.gms:play-services:10.2.6'
     compile project(":adslib")
 }
